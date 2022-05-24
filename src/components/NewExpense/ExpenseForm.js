@@ -5,48 +5,26 @@ const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState('')
   const [enteredAmount, setEnteredAmount] = useState('')
   const [enteredDate, setEnteredDate] = useState('')
-  //
-  // const [userInput, setUserInput] = useState({
-  //   titleChangeHandler: '',
-  //   amountChangeHandler: '',
-  //   dateChangeHandler: '',
-  // })
-
 
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value)
-    // setUserInput({
-    //   ...userInput,
-    //   titleChangeHandler: event.target.value
-    // })
   }
 
   const amountChangeHandler = (event) => {
     setEnteredAmount(event.target.value)
-    // setUserInput({
-    //   ...userInput,
-    //   amountChangeHandler: event.target.value
-    // })
   }
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value)
-    // setUserInput({
-    //   ...userInput,
-    //   dateChangeHandler: event.target.value
-    // })
   }
-
-  // console.log(userInput)
 
   const submitHandler = (event) => {
     event.preventDefault()
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate)
     }
     props.onSaveExpenseData(expenseData)
-
     setEnteredTitle('')
     setEnteredAmount('')
     setEnteredDate('')
@@ -54,14 +32,13 @@ const ExpenseForm = (props) => {
 
 
   return (
-    <form action="#" onSubmit={submitHandler}>
+    <form action="src/components/NewExpense/ExpenseForm#" onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label htmlFor="#">Title</label>
           <input value={enteredTitle}
                  type="text"
                  onChange={titleChangeHandler}
-
           />
         </div>
         <div className="new-expense__control">
@@ -81,11 +58,13 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
-        <button>
+        <button type='button' onClick={props.onCancel}>
+          Cancel
+        </button>
+        <button type="submit">
           Add Expense
         </button>
       </div>
-
     </form>
   )
 }

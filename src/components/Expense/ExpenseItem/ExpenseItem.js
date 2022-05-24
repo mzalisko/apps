@@ -1,6 +1,6 @@
-import ExpenseDate from "./ExpenseDate";
+import ExpenseDate from "../ExpenseData/ExpenseDate";
 import './ExpenseItem.sass'
-import Card from "../UI/Card";
+import Card from "../../UI/Card";
 
 const ExpenseItem = (props) => {
   return (

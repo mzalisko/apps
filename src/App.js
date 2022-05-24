@@ -2,18 +2,19 @@ import Expense from "./components/Expense/Expense";
 import NewExpense from "./components/NewExpense/NewExpense";
 import {useState} from "react";
 
+
 const DUMMY_EXPENSES = [
   {
     id: 1,
     title: 'Car Insurance',
     amount: 1234.54,
-    date: new Date(2001, 2, 3)
+    date: new Date(2021, 2, 3)
   },
   {
     id: 2,
     title: 'Shopping',
     amount: 34.24,
-    date: new Date(2012, 6, 15)
+    date: new Date(2022, 6, 15)
   },
   {
     id: 3,
